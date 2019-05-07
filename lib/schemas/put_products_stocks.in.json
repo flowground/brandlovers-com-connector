@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "items": {
+                "properties": {
+                    "skuSellerId": {
+                        "description": "Unique Product Id (SKU) in the seller system",
+                        "type": "string"
+                    },
+                    "stocks": {
+                        "description": "Invetory information",
+                        "items": {
+                            "properties": {
+                                "crossDockingTime": {
+                                    "default": 0,
+                                    "description": "Time it will take to manufacture, prepare or setup this product. Time must be provided in seconds. For example 1 day should be informed as 86400. This time will be included in the product ETA informed to the customer",
+                                    "type": "integer"
+                                },
+                                "quantity": {
+                                    "description": "Stock available",
+                                    "type": "integer"
+                                }
+                            },
+                            "required": [
+                                "quantity"
+                            ],
+                            "type": "object"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "skuSellerId",
+                    "stocks"
+                ],
+                "type": "object"
+            },
+            "type": "array"
+        }
+    }
+}

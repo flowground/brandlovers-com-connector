@@ -1,0 +1,170 @@
+{
+    "type": "object",
+    "properties": {
+        "authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "items": {
+                "properties": {
+                    "attributes": {
+                        "description": "List of `key` `value` attributes of this product. This is very important for search and SEO optmization. Include all relevant information",
+                        "items": {
+                            "properties": {
+                                "name": {
+                                    "description": "Attribute name",
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "description": "Attribute value",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "value"
+                            ],
+                            "type": "object"
+                        },
+                        "type": "array"
+                    },
+                    "brand": {
+                        "description": "Brand name",
+                        "type": "string"
+                    },
+                    "categories": {
+                        "description": "Array of categories associated with this product",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "description": {
+                        "description": "Product description.",
+                        "type": "string"
+                    },
+                    "dimensions": {
+                        "properties": {
+                            "height": {
+                                "description": "Product height in millimeters. No commas or periods are accepeted. For example one meter produc must be informed as 1000. Another example 1 meter and 23 centimeters should be informed solely as 1230",
+                                "type": "integer"
+                            },
+                            "length": {
+                                "description": "Product length in millimeters. No commas or periods are accepeted. For example one meter produc must be informed as 1000. Another example 1 meter and 23 centimeters should be informed solely as 1230",
+                                "type": "integer"
+                            },
+                            "weight": {
+                                "description": "Product weight in Grams. No commas or periods are accepeted. For example one killo must be informed as 1000. Another example 1 Kilo and 234 grams should be informed solely as 1234",
+                                "type": "integer"
+                            },
+                            "width": {
+                                "description": "Product width in millimeters. No commas or periods are accepeted. For example one meter produc must be informed as 1000. Another example 1 meter and 23 centimeters should be informed solely as 1230",
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "weight",
+                            "length",
+                            "width",
+                            "height"
+                        ],
+                        "type": "object"
+                    },
+                    "giftWrap": {
+                        "properties": {
+                            "available": {
+                                "description": "Flag that defines if this product is eligible for giftwrapping",
+                                "type": "boolean"
+                            },
+                            "messageSupport": {
+                                "description": "Flag that defines if seller supports giftwrapp with a message",
+                                "type": "boolean"
+                            },
+                            "value": {
+                                "description": "Amount charged for gift wrap. All prices must be provided in cents. No commas or periods are accepeted. For example one dollar should be informed as 100. $1,2345.67 should be informed solely as 1234567",
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "available",
+                            "value"
+                        ],
+                        "type": "object"
+                    },
+                    "gtin": {
+                        "description": "Array of product EAN and/or ISBN and/or ASIN codes",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "images": {
+                        "description": "List of valid Product image URLs. HTTP or HTTPS are valid. HTTPS is prefered.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "price": {
+                        "properties": {
+                            "default": {
+                                "description": "List price, also known as MSRP (Manufacturer Suggest Retail Price) or the recommended retail price (RRP). All prices must be provided in cents. No commas or periods are accepeted. For example one dollar should be informed as 100. $1,2345.67 should be informed solely as 1234567",
+                                "type": "integer"
+                            },
+                            "offer": {
+                                "description": "Product price. This is what will be offered to the customer. All prices must be provided in cents. No commas or periods are accepeted. For example one dollar should be informed as 100. $1,2345.67 should be informed solely as 1234567",
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "default",
+                            "offer"
+                        ],
+                        "type": "object"
+                    },
+                    "productGroupId": {
+                        "description": "Unique Product Group ID. Products with the same `productGroupId` will be grouped and displayed as a unique entry. Use `productGroupId` to group diferent SKUs that represent diferent colors, sizes, capacities, etc..",
+                        "type": "string"
+                    },
+                    "productId": {
+                        "description": "Brand Lovers Product ID. Use this to suggest a product association. This field is optional.",
+                        "type": "string"
+                    },
+                    "skuSellerId": {
+                        "description": "Unique Product Id (SKU) in the seller system",
+                        "type": "string"
+                    },
+                    "stock": {
+                        "description": "Number of products availble for sale from the seller. Each new successfull order will automatically reduce the number of products available.",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "Product name as advertised by manufacturer. This how the product will be displayed in the Marketplace",
+                        "type": "string"
+                    },
+                    "videos": {
+                        "description": "List of videos de URLs associated with this product. HTTP or HTTPS are valid. HTTPS is prefered.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "skuSellerId",
+                    "title",
+                    "description",
+                    "brand",
+                    "price",
+                    "categories",
+                    "stock",
+                    "images",
+                    "attributes"
+                ],
+                "type": "object"
+            },
+            "type": "array"
+        }
+    }
+}

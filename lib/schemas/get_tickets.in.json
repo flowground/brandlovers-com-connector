@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "status": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "OPEN",
+                "REOPENED",
+                "CLOSED"
+            ]
+        },
+        "offset": {
+            "required": false,
+            "type": "integer"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        }
+    }
+}

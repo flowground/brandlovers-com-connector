@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "skuSellerId": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

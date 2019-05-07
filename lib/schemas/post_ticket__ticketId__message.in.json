@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "ticketId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "body": {
+                    "description": "Message text",
+                    "type": "string"
+                },
+                "visibility": {
+                    "description": "Defines if this message is `CUSTOMER` (customer will receive a copy) or `INTERNAL`",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "visibility",
+                "body"
+            ],
+            "type": "object"
+        }
+    }
+}

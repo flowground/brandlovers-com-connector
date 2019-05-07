@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "items": {
+                "properties": {
+                    "active": {
+                        "description": "Defines if this product is ready for sale. Active `true`, disabled `false`",
+                        "type": "boolean"
+                    },
+                    "skuSellerId": {
+                        "description": "Seller product unique Id that will be updated",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "skuSellerId",
+                    "active"
+                ],
+                "type": "object"
+            },
+            "type": "array"
+        }
+    }
+}

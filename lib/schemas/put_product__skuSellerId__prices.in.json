@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "skuSellerId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "default": {
+                    "description": "List price, also known as MSRP (Manufacturer Suggest Retail Price) or the recommended retail price (RRP). All prices must be provided in cents. No commas or periods are accepeted. For example one dollar should be informed as 100. $1,2345.67 should be informed solely as 1234567",
+                    "type": "integer"
+                },
+                "offer": {
+                    "description": "Product price. This is what will be offered to the customer. All prices must be provided in cents. No commas or periods are accepeted. For example one dollar should be informed as 100. $1,2345.67 should be informed solely as 1234567",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "default",
+                "offer"
+            ],
+            "type": "object"
+        }
+    }
+}

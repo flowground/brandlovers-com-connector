@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "ticketId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "ticketStatus": {
+                    "description": "New trouble ticket status. Valid options are `REOPENED`, `CLOSED`",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ticketStatus"
+            ],
+            "type": "object"
+        }
+    }
+}

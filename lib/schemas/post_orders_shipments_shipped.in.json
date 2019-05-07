@@ -1,0 +1,122 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "shipments": {
+                    "items": {
+                        "properties": {
+                            "courier": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Courier name",
+                                        "type": "string"
+                                    },
+                                    "taxID": {
+                                        "description": "Courier taxId information. For example CNPJ",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "type": "object"
+                            },
+                            "cte": {
+                                "description": "Conhecimento de Transporte Eletôniconico",
+                                "type": "string"
+                            },
+                            "invoice": {
+                                "properties": {
+                                    "accessKey": {
+                                        "description": "Número da chave de acesso à nota fiscal. A chave possui 44 dígitos e contém todas as informações da DANFE",
+                                        "type": "string"
+                                    },
+                                    "cnpj": {
+                                        "description": "CNPJ responsável pelo envio dos produtos. Pode ser diferente caso a empresa possua diversos Centros de Distribuição (CDs)",
+                                        "type": "string"
+                                    },
+                                    "issuedAt": {
+                                        "description": "Data de emissão da Nota Fiscal",
+                                        "format": "date-time",
+                                        "type": "string"
+                                    },
+                                    "linkDanfe": {
+                                        "description": "Url para consulta da DANFE",
+                                        "type": "string"
+                                    },
+                                    "linkXml": {
+                                        "description": "Url para consulta da NFE",
+                                        "type": "string"
+                                    },
+                                    "number": {
+                                        "description": "Número da Nota Fiscal",
+                                        "type": "string"
+                                    },
+                                    "serie": {
+                                        "description": "Número de serie da Nota Fiscal",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "number",
+                                    "serie",
+                                    "accessKey"
+                                ],
+                                "type": "object"
+                            },
+                            "items": {
+                                "items": {
+                                    "properties": {
+                                        "quantity": {
+                                            "description": "Quantity of items",
+                                            "type": "integer"
+                                        },
+                                        "skuSellerId": {
+                                            "description": "Unique Product Id (SKU) in the seller system. This is the key that defines witch product will be updated",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "skuSellerId",
+                                        "quantity"
+                                    ],
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            },
+                            "number": {
+                                "description": "Courier unique trackign Id associated with this shipment",
+                                "type": "string"
+                            },
+                            "occurredAt": {
+                                "description": "Date that this shippment was shiped",
+                                "format": "date-time",
+                                "type": "string"
+                            },
+                            "order": {
+                                "description": "Order unique Id",
+                                "type": "string"
+                            },
+                            "sellerShipmentId": {
+                                "description": "Unique Seller shipment Id. This must be unique across all orders and shipments",
+                                "type": "string"
+                            },
+                            "status": {
+                                "description": "Shipment status.",
+                                "type": "string"
+                            },
+                            "trackingUrl": {
+                                "description": "Courier tracking URL",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

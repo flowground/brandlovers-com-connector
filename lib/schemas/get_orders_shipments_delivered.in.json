@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "status": {
+            "required": false,
+            "type": "string"
+        },
+        "offset": {
+            "required": false,
+            "type": "integer"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "status": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "NEW",
+                "APPROVED",
+                "DECLINED",
+                "PENDING"
+            ]
+        },
+        "offset": {
+            "required": false,
+            "type": "integer"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer"
+        }
+    }
+}

@@ -1,0 +1,83 @@
+{
+    "type": "object",
+    "properties": {
+        "authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "orderId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "courier": {
+                    "properties": {
+                        "name": {
+                            "description": "Courier name",
+                            "type": "string"
+                        },
+                        "taxID": {
+                            "description": "Courier taxId information. For example CNPJ",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name"
+                    ],
+                    "type": "object"
+                },
+                "cte": {
+                    "description": "Conhecimento do Transporte Eletrônico",
+                    "type": "string"
+                },
+                "info": {
+                    "description": "Aditional information about this shippment",
+                    "type": "string"
+                },
+                "items": {
+                    "items": {
+                        "properties": {
+                            "quantity": {
+                                "description": "Quantity of items",
+                                "type": "integer"
+                            },
+                            "skuSellerId": {
+                                "description": "Unique Product Id (SKU) in the seller system. This is the key that defines witch product will be updated",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "skuSellerId",
+                            "quantity"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "number": {
+                    "description": "Tracking Id in the courier",
+                    "type": "string"
+                },
+                "occurredAt": {
+                    "description": "Date time that this was created",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "sellerShipmentId": {
+                    "description": "Unique Seller shipment Id. This must be unique across all orders and shipments",
+                    "type": "string"
+                },
+                "tranckingUrl": {
+                    "description": "Courier tracking URL",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "items",
+                "info"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,70 @@
+{
+    "type": "object",
+    "properties": {
+        "authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "body": {
+                    "description": "Message to the customer",
+                    "type": "string"
+                },
+                "customer": {
+                    "properties": {
+                        "name": {
+                            "description": "Customer name",
+                            "type": "string"
+                        },
+                        "phoneNumber": {
+                            "description": "Customer phone mumber",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "description": {
+                    "description": "Trouble ticked brief description",
+                    "type": "string"
+                },
+                "from": {
+                    "description": "Friendly name of the person sending this message, if not provided the seller `name` will be used",
+                    "type": "string"
+                },
+                "message": {
+                    "properties": {
+                        "body": {
+                            "description": "Message text",
+                            "type": "string"
+                        },
+                        "visibility": {
+                            "description": "Defines if this message is `CUSTOMER` (customer will receive a copy) or `INTERNAL`",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "visibility",
+                        "body"
+                    ],
+                    "type": "object"
+                },
+                "orderId": {
+                    "description": "Unique order Id that this trouble ticket belongs to",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Trouble ticket type.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "orderId",
+                "from",
+                "body",
+                "type"
+            ],
+            "type": "object"
+        }
+    }
+}
